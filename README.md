@@ -8,3 +8,4 @@ This repository contains labs for testing the IBM Watson Assistant chatbot platf
 
 - [Lab 1. Actions Skill Lab](1.Actions-skills.md)
 - [Lab 2. Telegram integration Lab](2.Nodered-Telegram.md)
+- [Lab 3. Multilanguage skill Lab](3.MultilanguageSkill.md)
