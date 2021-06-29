@@ -1,0 +1,375 @@
+{
+  "name": "Banking Actions Skill",
+  "type": "dialog",
+  "status": "Available",
+  "language": "en",
+  "skill_id": "7508a602-9a5a-4042-95e1-8f4f4f7b531f",
+  "workspace": {
+    "actions": [
+      {
+        "steps": [
+          {
+            "step": "step_226",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Thank you! You initiated transfer of "
+                          },
+                          {
+                            "variable": "step_532"
+                          },
+                          {
+                            "scalar": ". Your new balance will be "
+                          },
+                          {
+                            "skill_variable": "newbalance"
+                          },
+                          {
+                            "scalar": "."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "context": {
+              "variables": [
+                {
+                  "value": {
+                    "expression": "${balance}-${step_532}"
+                  },
+                  "skill_variable": "newbalance"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_226"
+          },
+          {
+            "step": "step_415",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "You cannot transfer less than $100"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "step": "step_532",
+              "type": "jump_to"
+            },
+            "variable": "step_415",
+            "condition": {
+              "lt": [
+                {
+                  "variable": "step_532"
+                },
+                {
+                  "scalar": "100"
+                }
+              ]
+            },
+            "next_step": "step_226"
+          },
+          {
+            "step": "step_532",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "How much you would like to transfer?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Enter a number."
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I'm afraid I don't understand. Let me see if I can help another way."
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "end_action"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-number",
+              "max_tries": 3,
+              "only_populate_when_prompted": true
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_532",
+            "next_step": "step_415"
+          },
+          {
+            "step": "step_969",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Your balance: "
+                          },
+                          {
+                            "skill_variable": "balance"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_969",
+            "next_step": "step_532"
+          }
+        ],
+        "title": "Transfer Action",
+        "action": "action_49080",
+        "handlers": [],
+        "condition": {
+          "intent": "action_49080_intent_11549"
+        },
+        "variables": [
+          {
+            "title": "Thank you! You initiated transfer of {variable}. Your new balanc",
+            "variable": "step_226"
+          },
+          {
+            "title": "You cannot transfer less than $100",
+            "variable": "step_415"
+          },
+          {
+            "title": "How much you would like to transfer?",
+            "variable": "step_532"
+          },
+          {
+            "title": "Your balance: {variable}",
+            "variable": "step_969"
+          }
+        ],
+        "next_action": "anything_else",
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I am afraid I do not understand what you are asking, please re-phrase your question."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_001"
+          }
+        ],
+        "title": "Retry when no action matches",
+        "action": "anything_else",
+        "handlers": [],
+        "condition": {
+          "expression": "anything_else"
+        },
+        "variables": [
+          {
+            "variable": "step_001"
+          }
+        ],
+        "disambiguation_opt_out": true
+      },
+      {
+        "steps": [
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Welcome, how can I assist you?"
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_001"
+          }
+        ],
+        "title": "Greet customer",
+        "action": "welcome",
+        "handlers": [],
+        "condition": {
+          "expression": "welcome"
+        },
+        "variables": [
+          {
+            "variable": "step_001"
+          }
+        ],
+        "next_action": "action_49080",
+        "disambiguation_opt_out": true
+      }
+    ],
+    "intents": [
+      {
+        "intent": "action_49080_intent_11549",
+        "examples": [
+          {
+            "text": "I would like to transfer funds"
+          },
+          {
+            "text": "transfer money"
+          }
+        ]
+      }
+    ],
+    "entities": [
+      {
+        "entity": "sys-number",
+        "values": [],
+        "fuzzy_match": true
+      }
+    ],
+    "metadata": {
+      "api_version": {
+        "major_version": "v1",
+        "minor_version": "2020-04-01"
+      }
+    },
+    "variables": [
+      {
+        "title": "balance",
+        "variable": "balance",
+        "description": ""
+      },
+      {
+        "title": "newbalance",
+        "variable": "newbalance",
+        "description": ""
+      }
+    ],
+    "counterexamples": [],
+    "system_settings": {
+      "off_topic": {
+        "enabled": true
+      },
+      "disambiguation": {
+        "prompt": "Did you mean:",
+        "enabled": true,
+        "randomize": true,
+        "max_suggestions": 5,
+        "suggestion_text_policy": "title",
+        "none_of_the_above_prompt": "None of the above"
+      },
+      "system_entities": {
+        "enabled": true
+      },
+      "intent_classification": {
+        "training_backend_version": "v2"
+      },
+      "spelling_auto_correct": true
+    },
+    "learning_opt_out": false
+  },
+  "description": "",
+  "workspace_id": "7508a602-9a5a-4042-95e1-8f4f4f7b531f",
+  "dialog_settings": {
+    "actions": true
+  }
+}
