@@ -1,0 +1,2442 @@
+{
+  "name": "dfasdfa",
+  "type": "dialog",
+  "status": "Available",
+  "created": "2021-09-15T11:35:13.052Z",
+  "updated": "2021-09-15T11:56:07.796Z",
+  "language": "en",
+  "skill_id": "6eeec277-b612-425f-ba2c-536eca9390c6",
+  "workspace": {
+    "actions": [
+      {
+        "steps": [
+          {
+            "step": "step_321",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "A CVV is the three- or four-digit number on your card that adds an extra layer of security when making purchases online or over the phone. It serves to verify that you have a physical copy of the card in your possession and helps protect you if your card number falls into the hands of hackers and identity thieves."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_321"
+          }
+        ],
+        "title": "What is a CVV number?",
+        "action": "action_35528",
+        "handlers": [],
+        "condition": {
+          "intent": "action_35528_intent_35910"
+        },
+        "variables": [
+          {
+            "title": "A CVV is the three- or four-digit number on your card that adds ",
+            "variable": "step_321",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_7351",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_276",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "What is your expiration date?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I'm sorry, I did not catch that, please restate your response."
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-date",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_276",
+            "next_step": "step_392"
+          },
+          {
+            "step": "step_392",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "What is your CVV number?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Enter a number."
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-number",
+              "max_tries": 3,
+              "only_populate_when_prompted": true
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_392",
+            "next_step": "step_695"
+          },
+          {
+            "step": "step_532",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "What is your account number?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Enter a number."
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-number",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_532",
+            "next_step": "step_276"
+          },
+          {
+            "step": "step_686",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Let's start over"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "replay",
+              "clear": [
+                {
+                  "variable": "step_532"
+                },
+                {
+                  "variable": "step_276"
+                },
+                {
+                  "variable": "step_392"
+                },
+                {
+                  "variable": "step_695"
+                }
+              ]
+            },
+            "variable": "step_686",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_695"
+                },
+                {
+                  "value": "No",
+                  "from_entity": "action_4044_step_695_entity_41741"
+                }
+              ]
+            }
+          },
+          {
+            "step": "step_695",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Okay we will pay for that item on this credit card:\n- **Account number**: "
+                          },
+                          {
+                            "variable": "step_532"
+                          },
+                          {
+                            "scalar": " \n- **Expiration date**: "
+                          },
+                          {
+                            "variable": "step_276"
+                          },
+                          {
+                            "scalar": " \n- **CVV number**:  "
+                          },
+                          {
+                            "variable": "step_392"
+                          },
+                          {
+                            "scalar": " \nIs that correct?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes",
+                      "value": {
+                        "input": {
+                          "text": "Yes"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No",
+                      "value": {
+                        "input": {
+                          "text": "No"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "action_4044_step_695_entity_41741",
+              "max_tries": 3,
+              "only_populate_when_prompted": false
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_695",
+            "next_step": "step_833"
+          },
+          {
+            "step": "step_833",
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_833",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_695"
+                },
+                {
+                  "value": "Yes",
+                  "from_entity": "action_4044_step_695_entity_41741"
+                }
+              ]
+            },
+            "next_step": "step_686"
+          }
+        ],
+        "title": "Credit Card Payment",
+        "action": "action_4044",
+        "handlers": [],
+        "condition": {
+          "intent": "action_4044_intent_28839"
+        },
+        "variables": [
+          {
+            "title": "What is your expiration date?",
+            "variable": "step_276",
+            "data_type": "any"
+          },
+          {
+            "title": "What is your CVV number?",
+            "variable": "step_392",
+            "data_type": "any"
+          },
+          {
+            "title": "What is your account number?",
+            "variable": "step_532",
+            "data_type": "any"
+          },
+          {
+            "title": "Let's start over",
+            "variable": "step_686",
+            "data_type": "any"
+          },
+          {
+            "title": "Okay we will pay for that item on this credit card: - **Account ",
+            "variable": "step_695",
+            "data_type": "any"
+          },
+          {
+            "title": "No response",
+            "variable": "step_833",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_35528",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_146",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "How do you want to pay?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Credit Card",
+                      "value": {
+                        "input": {
+                          "text": "Credit Card"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Cash",
+                      "value": {
+                        "input": {
+                          "text": "Cash"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Check",
+                      "value": {
+                        "input": {
+                          "text": "Check"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "action_42330_step_146_entity_18710",
+              "max_tries": 3,
+              "only_populate_when_prompted": false
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_146",
+            "next_step": "step_907"
+          },
+          {
+            "step": "step_166",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "We must authenticate you account before withdrawing from savings."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action",
+              "invoke_action": {
+                "action": "action_7351",
+                "parameters": null,
+                "result_variable": "step_166_result_1"
+              }
+            },
+            "variable": "step_166",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_290"
+                },
+                {
+                  "value": "Savings",
+                  "from_entity": "action_42330_step_290_entity_28065"
+                }
+              ]
+            },
+            "next_step": "step_932"
+          },
+          {
+            "step": "step_245",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Let me see if you are authenticated first."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action",
+              "invoke_action": {
+                "action": "action_7351",
+                "parameters": null,
+                "result_variable": "step_245_result_1"
+              }
+            },
+            "variable": "step_245",
+            "condition": {
+              "or": [
+                {
+                  "eq": [
+                    {
+                      "variable": "step_557"
+                    },
+                    {
+                      "value": "Water",
+                      "from_entity": "action_42330_step_557_entity_1382"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_557"
+                    },
+                    {
+                      "value": "Electric",
+                      "from_entity": "action_42330_step_557_entity_1382"
+                    }
+                  ]
+                }
+              ]
+            },
+            "next_step": "step_798"
+          },
+          {
+            "step": "step_290",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Which account would you like to pull the funds from?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Checking",
+                      "value": {
+                        "input": {
+                          "text": "Checking"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Savings",
+                      "value": {
+                        "input": {
+                          "text": "Savings"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "action_42330_step_290_entity_28065",
+              "max_tries": 3,
+              "only_populate_when_prompted": false
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_290",
+            "next_step": "step_166"
+          },
+          {
+            "step": "step_300",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Great, I will pay your "
+                          },
+                          {
+                            "variable": "step_557"
+                          },
+                          {
+                            "scalar": " bill right away."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_300",
+            "condition": {
+              "exists": {
+                "variable": "step_798"
+              }
+            },
+            "next_step": "step_767"
+          },
+          {
+            "step": "step_384",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Can you please provide feedback on your experience?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "question": {
+              "free_text": true,
+              "only_populate_when_prompted": true
+            },
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_384"
+          },
+          {
+            "step": "step_445",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Let me confirm, you want to pay "
+                          },
+                          {
+                            "variable": "step_932"
+                          },
+                          {
+                            "scalar": " from your checking account. Is that correct?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes",
+                      "value": {
+                        "input": {
+                          "text": "Yes"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No",
+                      "value": {
+                        "input": {
+                          "text": "No"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "action_42330_step_445_entity_21370",
+              "max_tries": 3,
+              "only_populate_when_prompted": false
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_445",
+            "next_step": "step_556"
+          },
+          {
+            "step": "step_556",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Great, we will send you your funds."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_556",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_445"
+                },
+                {
+                  "value": "Yes",
+                  "from_entity": "action_42330_step_445_entity_21370"
+                }
+              ]
+            },
+            "next_step": "step_695"
+          },
+          {
+            "step": "step_557",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Do you want to pay another bill?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Water",
+                      "value": {
+                        "input": {
+                          "text": "Water"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Electric",
+                      "value": {
+                        "input": {
+                          "text": "Electric"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No thanks",
+                      "value": {
+                        "input": {
+                          "text": "No thanks"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "action_42330_step_557_entity_1382",
+              "max_tries": 3,
+              "only_populate_when_prompted": false
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_557",
+            "next_step": "step_245"
+          },
+          {
+            "step": "step_695",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "There seems to be a problem, let's start over."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "replay",
+              "clear": [
+                {
+                  "variable": "step_290"
+                },
+                {
+                  "variable": "step_166"
+                },
+                {
+                  "variable": "step_932"
+                },
+                {
+                  "variable": "step_445"
+                }
+              ]
+            },
+            "variable": "step_695",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_445"
+                },
+                {
+                  "value": "No",
+                  "from_entity": "action_42330_step_445_entity_21370"
+                }
+              ]
+            },
+            "next_step": "step_557"
+          },
+          {
+            "step": "step_767",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "No problem, thank you for you time."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_767",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_557"
+                },
+                {
+                  "value": "No thanks",
+                  "from_entity": "action_42330_step_557_entity_1382"
+                }
+              ]
+            },
+            "next_step": "step_384"
+          },
+          {
+            "step": "step_798",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "How much would you like to pay?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I'm sorry, I did not catch that, please restate your response."
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-currency",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_798",
+            "condition": {
+              "or": [
+                {
+                  "eq": [
+                    {
+                      "variable": "step_557"
+                    },
+                    {
+                      "value": "Water",
+                      "from_entity": "action_42330_step_557_entity_1382"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_557"
+                    },
+                    {
+                      "value": "Electric",
+                      "from_entity": "action_42330_step_557_entity_1382"
+                    }
+                  ]
+                }
+              ]
+            },
+            "next_step": "step_146"
+          },
+          {
+            "step": "step_907",
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action",
+              "invoke_action": {
+                "action": "action_4044",
+                "parameters": null,
+                "result_variable": "step_907_result_1"
+              }
+            },
+            "variable": "step_907",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_146"
+                },
+                {
+                  "value": "Credit Card",
+                  "from_entity": "action_42330_step_146_entity_18710"
+                }
+              ]
+            },
+            "next_step": "step_300"
+          },
+          {
+            "step": "step_932",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "How much of the bill would you like to pay?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I'm sorry, I did not catch that, please restate your response."
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-currency",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_932",
+            "next_step": "step_445"
+          }
+        ],
+        "title": "Pay bill",
+        "action": "action_42330",
+        "handlers": [],
+        "condition": {
+          "intent": "action_42330_intent_16812"
+        },
+        "variables": [
+          {
+            "title": "How do you want to pay?",
+            "variable": "step_146",
+            "data_type": "any"
+          },
+          {
+            "title": "We must authenticate you account before withdrawing from savings",
+            "variable": "step_166",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_166_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "Let me see if you are authenticated first.",
+            "variable": "step_245",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_245_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "Which account would you like to pull the funds from?",
+            "variable": "step_290",
+            "data_type": "any"
+          },
+          {
+            "title": "Great, I will pay your {variable} bill right away.",
+            "variable": "step_300",
+            "data_type": "any"
+          },
+          {
+            "title": "Can you please provide feedback on your experience?",
+            "variable": "step_384",
+            "data_type": "any"
+          },
+          {
+            "title": "Let me confirm, you want to pay {variable} from your checking ac",
+            "variable": "step_445",
+            "data_type": "any"
+          },
+          {
+            "title": "Great, we will send you your funds.",
+            "variable": "step_556",
+            "data_type": "any"
+          },
+          {
+            "title": "Do you want to pay another bill?",
+            "variable": "step_557",
+            "data_type": "any"
+          },
+          {
+            "title": "There seems to be a problem, let's start over.",
+            "variable": "step_695",
+            "data_type": "any"
+          },
+          {
+            "title": "No problem, thank you for you time.",
+            "variable": "step_767",
+            "data_type": "any"
+          },
+          {
+            "title": "How much would you like to pay?",
+            "variable": "step_798",
+            "data_type": "any"
+          },
+          {
+            "title": "No response",
+            "variable": "step_907",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_907_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "How much of the bill would you like to pay?",
+            "variable": "step_932",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "fallback",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_366",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Let's try again"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "replay",
+              "clear": [
+                {
+                  "variable": "step_371"
+                },
+                {
+                  "variable": "step_905"
+                },
+                {
+                  "variable": "step_524"
+                },
+                {
+                  "variable": "step_389"
+                }
+              ]
+            },
+            "variable": "step_366",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_389"
+                },
+                {
+                  "value": "No",
+                  "from_entity": "action_7351_step_389_entity_41998"
+                }
+              ]
+            },
+            "next_step": "step_426"
+          },
+          {
+            "step": "step_371",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Please provide your name"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "context": {
+              "variables": []
+            },
+            "handlers": [],
+            "question": {
+              "free_text": true,
+              "only_populate_when_prompted": true
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_371",
+            "condition": {
+              "not": {
+                "exists": {
+                  "skill_variable": "Name"
+                }
+              }
+            },
+            "next_step": "step_905"
+          },
+          {
+            "step": "step_388",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Great, we found you in the system "
+                          },
+                          {
+                            "skill_variable": "Name"
+                          },
+                          {
+                            "scalar": ". Let's continue in the process."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_388",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_389"
+                },
+                {
+                  "value": "Yes",
+                  "from_entity": "action_7351_step_389_entity_41998"
+                }
+              ]
+            },
+            "next_step": "step_366"
+          },
+          {
+            "step": "step_389",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Does the following information look correct? If so I will authenticate you.\n- **Name**: "
+                          },
+                          {
+                            "skill_variable": "Name"
+                          },
+                          {
+                            "scalar": "\n- **Account number**: "
+                          },
+                          {
+                            "skill_variable": "account_number"
+                          },
+                          {
+                            "scalar": "\n- **Password**: "
+                          },
+                          {
+                            "skill_variable": "Password"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes",
+                      "value": {
+                        "input": {
+                          "text": "Yes"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No",
+                      "value": {
+                        "input": {
+                          "text": "No"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "context": {
+              "variables": [
+                {
+                  "value": {
+                    "variable": "step_524"
+                  },
+                  "skill_variable": "Password"
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "action_7351_step_389_entity_41998",
+              "max_tries": 3,
+              "only_populate_when_prompted": false
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_389",
+            "condition": {
+              "and": [
+                {
+                  "exists": {
+                    "variable": "step_524"
+                  }
+                },
+                {
+                  "exists": {
+                    "variable": "step_371"
+                  }
+                },
+                {
+                  "exists": {
+                    "variable": "step_905"
+                  }
+                }
+              ]
+            },
+            "next_step": "step_388"
+          },
+          {
+            "step": "step_426",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "It seems we have already authenticated you. Let's keep moving "
+                          },
+                          {
+                            "skill_variable": "Name"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_426",
+            "condition": {
+              "and": [
+                {
+                  "exists": {
+                    "skill_variable": "Name"
+                  }
+                },
+                {
+                  "exists": {
+                    "skill_variable": "account_number"
+                  }
+                },
+                {
+                  "exists": {
+                    "skill_variable": "Password"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "step": "step_524",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "What is your password?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "context": {
+              "variables": [
+                {
+                  "value": {
+                    "variable": "step_905"
+                  },
+                  "skill_variable": "account_number"
+                }
+              ]
+            },
+            "handlers": [],
+            "question": {
+              "free_text": true,
+              "only_populate_when_prompted": true
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_524",
+            "condition": {
+              "not": {
+                "exists": {
+                  "skill_variable": "Password"
+                }
+              }
+            },
+            "next_step": "step_389"
+          },
+          {
+            "step": "step_905",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "What is your 4 digit numerical account number?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "context": {
+              "variables": [
+                {
+                  "value": {
+                    "variable": "step_371"
+                  },
+                  "skill_variable": "Name"
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Enter a number."
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-number",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_905",
+            "condition": {
+              "not": {
+                "exists": {
+                  "skill_variable": "account_number"
+                }
+              }
+            },
+            "next_step": "step_524"
+          }
+        ],
+        "title": "Authenticate",
+        "action": "action_7351",
+        "handlers": [],
+        "condition": {
+          "intent": "action_7351_intent_8257"
+        },
+        "variables": [
+          {
+            "title": "Let's try again",
+            "variable": "step_366",
+            "data_type": "any"
+          },
+          {
+            "title": "Please provide your name",
+            "variable": "step_371",
+            "data_type": "any"
+          },
+          {
+            "title": "Great, we found you in the system {variable}. Let's continue in ",
+            "variable": "step_388",
+            "data_type": "any"
+          },
+          {
+            "title": "Does the following information look correct? If so I will authen",
+            "variable": "step_389",
+            "data_type": "any"
+          },
+          {
+            "title": "It seems we have already authenticated you. Let's keep moving {v",
+            "variable": "step_426",
+            "data_type": "any"
+          },
+          {
+            "title": "What is your password?",
+            "variable": "step_524",
+            "data_type": "any"
+          },
+          {
+            "title": "What is your 4 digit numerical account number?",
+            "variable": "step_905",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_42330",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I'm afraid I don't understand. Please rephrase your question."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_001",
+            "condition": {
+              "lte": [
+                {
+                  "system_variable": "no_action_matches_count"
+                },
+                {
+                  "scalar": 3
+                }
+              ]
+            },
+            "next_step": "step_002"
+          },
+          {
+            "step": "step_002",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": ""
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action_and_end",
+              "invoke_action": {
+                "action": "fallback",
+                "parameters": null,
+                "result_variable": "step_002_result_1"
+              }
+            },
+            "variable": "step_002",
+            "condition": {
+              "gt": [
+                {
+                  "system_variable": "no_action_matches_count"
+                },
+                {
+                  "scalar": 3
+                }
+              ]
+            }
+          }
+        ],
+        "title": "No action matches",
+        "action": "anything_else",
+        "handlers": [],
+        "condition": {
+          "expression": "anything_else"
+        },
+        "variables": [
+          {
+            "title": "I am afraid I do not understand what you are asking, please re-p",
+            "variable": "step_001",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_002",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_002_result_1",
+            "data_type": "any"
+          }
+        ],
+        "disambiguation_opt_out": true
+      },
+      {
+        "steps": [
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I'm afraid I don't understand. I can connect you to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_001",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Step validation failed"
+                }
+              ]
+            },
+            "next_step": "step_002"
+          },
+          {
+            "step": "step_002",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Sorry I couldn't assist you. I will connect you to an agent right away."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_002",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Agent requested"
+                }
+              ]
+            },
+            "next_step": "step_003"
+          },
+          {
+            "step": "step_003",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I am afraid I do not understand what you are asking, let me connect you to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_003",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "No action matches"
+                }
+              ]
+            }
+          }
+        ],
+        "title": "Fallback",
+        "action": "fallback",
+        "handlers": [],
+        "condition": {
+          "intent": "fallback_connect_to_agent"
+        },
+        "variables": [
+          {
+            "title": "I'm afraid I don't understand. I can connect you to an agent.",
+            "variable": "step_001",
+            "data_type": "any"
+          },
+          {
+            "title": "Sorry I couldn't assist you. I will connect you to an agent righ",
+            "variable": "step_002",
+            "data_type": "any"
+          },
+          {
+            "title": "I am afraid I do not understand what you are asking, let me conn",
+            "variable": "step_003",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "anything_else",
+        "disambiguation_opt_out": true
+      },
+      {
+        "steps": [
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Welcome, how can I assist you?"
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_001"
+          }
+        ],
+        "title": "Greet customer",
+        "action": "welcome",
+        "handlers": [],
+        "condition": {
+          "expression": "welcome"
+        },
+        "variables": [
+          {
+            "variable": "step_001",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_4044",
+        "disambiguation_opt_out": true
+      }
+    ],
+    "intents": [
+      {
+        "intent": "action_35528_intent_35910",
+        "examples": [
+          {
+            "text": "What is a CVV number?"
+          }
+        ]
+      },
+      {
+        "intent": "action_4044_intent_28839",
+        "examples": []
+      },
+      {
+        "intent": "action_42330_intent_16812",
+        "examples": [
+          {
+            "text": "I want to pay my bill from my account"
+          },
+          {
+            "text": "Pay my remaining money"
+          },
+          {
+            "text": "Take care of my bill"
+          }
+        ]
+      },
+      {
+        "intent": "action_7351_intent_8257",
+        "examples": []
+      },
+      {
+        "intent": "fallback_connect_to_agent",
+        "examples": [
+          {
+            "text": "Agent help"
+          },
+          {
+            "text": "Call agent"
+          },
+          {
+            "text": "Can I connect to an agent?"
+          },
+          {
+            "text": "I would like to speak to a human"
+          },
+          {
+            "text": "I would like to speak to someone"
+          }
+        ],
+        "description": "Please transfer me to an agent"
+      }
+    ],
+    "entities": [
+      {
+        "entity": "action_4044_step_695_entity_41741",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "No",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Yes",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "action_42330_step_146_entity_18710",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Cash",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Check",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Credit Card",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "action_42330_step_290_entity_28065",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Checking",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Savings",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "action_42330_step_445_entity_21370",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "No",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Yes",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "action_42330_step_557_entity_1382",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Electric",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "No thanks",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Water",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "action_7351_step_389_entity_41998",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "No",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Yes",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "sys-currency",
+        "values": []
+      },
+      {
+        "entity": "sys-date",
+        "values": []
+      },
+      {
+        "entity": "sys-number",
+        "values": []
+      }
+    ],
+    "metadata": {
+      "api_version": {
+        "major_version": "v2",
+        "minor_version": "2018-11-08"
+      }
+    },
+    "variables": [
+      {
+        "title": "account number",
+        "variable": "account_number",
+        "data_type": "any",
+        "description": ""
+      },
+      {
+        "title": "Name",
+        "variable": "Name",
+        "data_type": "any",
+        "description": ""
+      },
+      {
+        "title": "Password",
+        "variable": "Password",
+        "data_type": "any",
+        "description": ""
+      }
+    ],
+    "counterexamples": [],
+    "system_settings": {
+      "off_topic": {
+        "enabled": true
+      },
+      "topic_switch": {
+        "enabled": true,
+        "messages": {
+          "confirm_return": {
+            "text": "Return to previous topic?"
+          },
+          "confirm_switch": {
+            "text": "Switch from the current topic?"
+          }
+        },
+        "question_steps_threshold": 2
+      },
+      "disambiguation": {
+        "prompt": "Did you mean:",
+        "enabled": true,
+        "randomize": true,
+        "max_suggestions": 5,
+        "suggestion_text_policy": "title",
+        "none_of_the_above_prompt": "None of the above"
+      },
+      "intent_classification": {
+        "training_backend_version": "v2"
+      },
+      "spelling_auto_correct": true
+    },
+    "learning_opt_out": false
+  },
+  "description": "created for assistant 0055d112-7250-47be-9dbc-38172f02305e",
+  "assistant_id": "0055d112-7250-47be-9dbc-38172f02305e",
+  "workspace_id": "6eeec277-b612-425f-ba2c-536eca9390c6",
+  "dialog_settings": {
+    "actions": true
+  }
+}
